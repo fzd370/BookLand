@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f44336</color>
+    <color name="colorPrimaryDark">#6b778d</color>
+    <color name="colorAccent">#34a853</color>
+    <color name="textColorPrimary">#2e2e2e</color>
+    <color name="textColorSecondary">#9e9e9e</color>
+    <color name="google_blue">#4285f4</color>
+    <color name="google_yellow">#fbbc05</color>
+    <color name="white">#fff</color>
+    <color name="background_color">#eee</color>
+    <color name="background_toolbar">#ffc60b</color>
+</resources>

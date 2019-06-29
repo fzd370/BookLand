@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/search"
+        android:title="@string/search_title"
+        android:icon="@drawable/ic_search_24dp"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="collapseActionView|always" />
+    <item android:id="@+id/barcode"
+        android:icon="@drawable/barcode2"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="never"
+        android:title="@string/barcode_reader" />
+    <item android:id="@+id/settings"
+        android:title="@string/filter"
+        android:icon="@drawable/filter2"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="never" />
+</menu>
