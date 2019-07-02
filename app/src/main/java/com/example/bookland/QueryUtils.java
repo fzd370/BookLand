@@ -155,7 +155,6 @@ public class QueryUtils {
 
                     JSONObject volumeinfo = currentbook.getJSONObject("volumeInfo");
 
-                    String book_name = volumeinfo.getString("title");
                     if (volumeinfo.has("authors")) {
                         JSONArray authors = volumeinfo.getJSONArray("authors");
                         author = authors.getString(0);
@@ -163,13 +162,13 @@ public class QueryUtils {
                         author = "No authors";
                     String date = volumeinfo.getString("publishedDate");
                     if (volumeinfo.has("imageLinks")) {
-                        String original = volumeinfo.getJSONObject("imageLinks").getString("smallThumbnail");
+                        String original = volumeinfo.getJSONObject("imageLinks").getString("thumbnail");
                         String toBeInserted="s";
                         imageLink=original.substring(0,4)+toBeInserted+original.substring(4);
                     }
                     String infoLink = volumeinfo.getString("infoLink");
 
-                    Book book = new Book(book_name, author, date, imageLink,infoLink);
+                    Book book = new Book( author, date, imageLink,infoLink);
 
                     books.add(book);
                 }

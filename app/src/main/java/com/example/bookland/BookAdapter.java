@@ -1,6 +1,8 @@
 package com.example.bookland;
 
 import android.content.Context;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,12 +39,13 @@ public class BookAdapter extends ArrayAdapter<Book> {
         {
             Glide.with(mContext).load(R.drawable.no_connection).into(imageView);
         }
-        TextView bookname= listItemView.findViewById(R.id.book_name);
-        bookname.setText(currentbook.getmBookname());
         TextView authorname = listItemView.findViewById(R.id.author);
         authorname.setText(currentbook.getmAuthor());
         TextView publisheddate= listItemView.findViewById(R.id.pub_date);
         publisheddate.setText(currentbook.getmPubDate());
+        TextView learnmore=listItemView.findViewById(R.id.learn_more);
+        learnmore.setText(Html.fromHtml("<a href=\""+currentbook.getmInfoLink()+"\">Learn More</a> "));
+        learnmore.setMovementMethod(LinkMovementMethod.getInstance());
 
         return listItemView;
     }

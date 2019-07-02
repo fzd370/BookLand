@@ -6,6 +6,7 @@ INJECTED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:2:1-26:12
 INJECTED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:2:1-26:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\f7148ab8c8c2da1ecf5afee61559ef2e\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\c4037decb98a45dbec2f9de30d6c4cbe\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\a7b2decdebf0efc265ee427621dae9f4\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:glide:4.6.1] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\eb202beefbd545587c56eb846df98cc6\AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\734cbac0aa8907574f4a136fdbdb2379\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\88587488b0df341857e661784a402809\AndroidManifest.xml:17:1-22:12
@@ -53,11 +54,11 @@ INJECTED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:2:1-26:12
 	xmlns:android
 		ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:6:5-66
+ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:6:5-67
 	android:name
 		ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:7:5-78
+ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:7:5-79
 	android:name
 		ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:7:22-76
 application
@@ -81,9 +82,9 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.6.1] C:\Users\Shivam\.gradle
 	tools:ignore
 		ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:16:9-48
 	android:roundIcon
-		ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:13:9-44
+		ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:13:9-45
 	android:icon
-		ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:11:9-39
+		ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:11:9-45
 	android:allowBackup
 		ADDED from D:\Apps\BookLand\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
@@ -110,6 +111,8 @@ MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Shivam\.gradle\ca
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\f7148ab8c8c2da1ecf5afee61559ef2e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\c4037decb98a45dbec2f9de30d6c4cbe\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\c4037decb98a45dbec2f9de30d6c4cbe\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\a7b2decdebf0efc265ee427621dae9f4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\a7b2decdebf0efc265ee427621dae9f4\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:glide:4.6.1] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\eb202beefbd545587c56eb846df98cc6\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.bumptech.glide:glide:4.6.1] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\eb202beefbd545587c56eb846df98cc6\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Shivam\.gradle\caches\transforms-2\files-2.1\734cbac0aa8907574f4a136fdbdb2379\AndroidManifest.xml:20:5-44

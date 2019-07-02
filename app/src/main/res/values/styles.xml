@@ -10,10 +10,10 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">#ff8b00</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">#33313b</item>
+        <item name="colorAccent">#ca3e47</item>
         <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>date
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="toolBarTextStyle" parent="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
@@ -22,9 +22,13 @@
     </style>
 
 
-    <style name="myToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:fontFamily">assets/fonts/Cairo-Light</item>
+    <style name="myToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:background">@color/background_toolbar</item>
+        <item name = "theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:elevation">6dp</item>
+        <item name = "titleTextColor">#fff</item>
     </style>
 
     <style name="overFlowMenuTheme" parent="ThemeOverlay.AppCompat.Light">

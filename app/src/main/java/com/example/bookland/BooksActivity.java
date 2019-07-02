@@ -2,7 +2,6 @@ package com.example.bookland;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
@@ -12,36 +11,64 @@ import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ListView;
+import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BooksActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Book>>{
+import static android.widget.Toast.LENGTH_SHORT;
+
+public class BooksActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Book>> {
 
     private static final String TAG = BooksActivity.class.getName();
-
-    private EditText mBookInput;
-    private BookAdapter mAdapter;
-    private ImageButton mButton;
     private static final int INITIAL_LOADER_ID = 1;
-    /** URL used to fetch latest published books (max 10) as default list view items */
-    private static final String INITIAL_REQUEST_URL = "https://www.googleapis.com/books/v1/volumes?q=2018&orderBy=newest&langRestrict=en&maxResults=10";
-
-    /** Initial part of the url used when a search query is entered */
+    /**
+     * Initial part of the url used when a search query is entered
+     */
     private static final String SEARCH_QUERY_URL = "https://www.googleapis.com/books/v1/volumes?";
-
-
-    /** This variable will contain the url that the loader will pass to asyncTask */
+    SearchView searchView;
+    /**
+     * This variable will contain the url that the loader will pass to asyncTask
+     */
     String QUERY;
+    private BookAdapter mAdapter;
+    private final SearchView.OnQueryTextListener searchViewOnQueryTextListener =
+            new SearchView.OnQueryTextListener() {
 
+                /**
+                 * Called when the user submits the search query. Returns early if the search
+                 * query hasn't changed since the last submission. Clears the static
+                 * {@link BooksActivity} and (re)starts the loader that fetches the
+                 * search results using the
+                 * <a href="https://developers.google.com/books/docs/overview"> Google Books
+                 * API</a>.
+                 *
+                 * @see BooksActivity
+                 * @return true, since the query has already been handled
+                 */
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    Uri baseUri = Uri.parse(SEARCH_QUERY_URL);
+                    Uri.Builder uriBuilder = baseUri.buildUpon();
+                    uriBuilder.appendQueryParameter("q", query);
+                    uriBuilder.appendQueryParameter("orderBy", "newest");
 
+                    QUERY = uriBuilder.toString();
+                    Log.e(TAG,"Complete url for entered query is "+QUERY);
+                    LoaderManager.getInstance(BooksActivity.this).restartLoader(INITIAL_LOADER_ID, null, BooksActivity.this);
+                    searchView.clearFocus();
+                    return true;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    return false;
+                }
+            };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,47 +76,20 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
         setContentView(R.layout.activity_books);
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
-        mBookInput= findViewById(R.id.search_query);
-        mButton= findViewById(R.id.search_btn);
         LoaderManager.getInstance(this).initLoader(INITIAL_LOADER_ID, null, this);
-        // Initialize the loader.
-        QUERY = INITIAL_REQUEST_URL;
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                    Uri uriBuilder = Uri.parse(SEARCH_QUERY_URL).buildUpon()
-                            .appendQueryParameter("q", mBookInput.getText().toString())
-                            .appendQueryParameter("maxResults", "10")
-                            .appendQueryParameter("printType", "books")
-                            .build();
-                    QUERY = uriBuilder.toString();
-                // Hide the keyboard when the button is pushed.
-                InputMethodManager inputManager = (InputMethodManager)
-                        getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-                 LoaderManager.getInstance(BooksActivity.this).restartLoader(INITIAL_LOADER_ID, null, BooksActivity.this);
+        GridView booksview = findViewById(R.id.booksList);
 
-            }
-        });
-
-        ListView booksview = findViewById(R.id.booksList);
-
-        mAdapter= new BookAdapter(this, new ArrayList<Book>());
+        mAdapter = new BookAdapter(this, new ArrayList<Book>());
 
         booksview.setAdapter(mAdapter);
 
-        booksview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Book currentbook=mAdapter.getItem(position);
-                Intent websiteIntent=new Intent(Intent.ACTION_VIEW,currentbook.getmInfoLink());
-                startActivity(websiteIntent);
-            }
-        });
+    }
 
-
+    public void show_toast(View v){
+                int duration= LENGTH_SHORT;
+                Context context=getApplicationContext();
+                Toast.makeText(context,"Click on learn more to see more details",duration).show();
     }
 
     @Override
@@ -118,20 +118,18 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
-        SearchView searchView = (SearchView) menu.findItem(R.id.search)
-                .getActionView();
+        searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setQueryHint("Search Google Books");
         searchView.setIconifiedByDefault(true);
         searchView.setInputType(InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE);
+        searchView.setSubmitButtonEnabled(true);
         // To display icon on overflow menu
-        if(menu instanceof MenuBuilder){
+        if (menu instanceof MenuBuilder) {
             MenuBuilder m = (MenuBuilder) menu;
             m.setOptionalIconsVisible(true);
         }
-
-        // searchView.setOnQueryTextListener(searchViewOnQueryTextListener);
-
+        searchView.setOnQueryTextListener(searchViewOnQueryTextListener);
         return true;
     }
 
-    }
+}
