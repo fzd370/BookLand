@@ -7,4 +7,55 @@
     <string name="search_title">Search books here</string>
     <string name="barcode_reader">Barcode Reader</string>
     <string name="filter">Preferences</string>
+
+    <!-- Settings Menu Item [CHAR LIMIT=NONE] -->
+    <string name="settings_menu_item">Settings</string>
+    <!-- Settings Activity Title [CHAR LIMIT=NONE] -->
+    <string name="settings_title">BookLand Settings</string>
+
+    <!-- Strings For Maximum Result Preference [CHAR LIMIT=30] -->
+    <string name="settings_max_results_label">Maximum Results</string>
+    <string name="settings_max_results_key" translatable="false">max_results</string>
+    <string name="settings_max_results_default" translatable="false">5</string>
+    <string name="settings_max_results_summary">A number between 1 to 100</string>
+
+    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_most_recent_value</string>
+    <string name="settings_order_by_summary">Sort results by relevance or time </string>
+
+    <!-- Label for order-by relevance option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_relevance_label">Relevance</string>
+    <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
+
+    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_most_recent_label">Most Recent</string>
+    <string name="settings_order_by_most_recent_value" translatable="false">newest</string>
+
+    <!-- Strings For Language Preference [CHAR LIMIT=30] -->
+    <string name="settings_lang_preference_label">Language Restriction</string>
+    <string name="settings_lang_preference_key" translatable="false">lang_preference</string>
+    <string name="settings_lang_preference_default" translatable="false">@string/settings_lang_preference_en_value</string>
+    <string name="settings_lang_preference_summary">Choose the language</string>
+
+    <!-- Label for English option [CHAR LIMIT=20] -->
+    <string name="settings_lang_preference_en_label">English</string>
+    <string name="settings_lang_preference_en_value" translatable="false">en</string>
+
+    <!-- Label for French option [CHAR LIMIT=20] -->
+    <string name="settings_lang_preference_fr_label">French</string>
+    <string name="settings_lang_preference_fr_value" translatable="false">fr</string>
+
+    <!-- Label for Italian option [CHAR LIMIT=20] -->
+    <string name="settings_lang_preference_it_label">Italian</string>
+    <string name="settings_lang_preference_it_value" translatable="false">it</string>
+
+    <!-- Label for Portuguese option [CHAR LIMIT=20] -->
+    <string name="settings_lang_preference_pt_label">Portuguese</string>
+    <string name="settings_lang_preference_pt_value" translatable="false">pt</string>
+
+    <!-- Label for Spanish option [CHAR LIMIT=20] -->
+    <string name="settings_lang_preference_es_label">Spanish</string>
+    <string name="settings_lang_preference_es_value" translatable="false">es</string>
 </resources>

@@ -2,8 +2,13 @@ package com.example.bookland;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +18,12 @@ import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,6 +35,7 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
 
     private static final String TAG = BooksActivity.class.getName();
     private static final int INITIAL_LOADER_ID = 1;
+
     /**
      * Initial part of the url used when a search query is entered
      */
@@ -34,8 +44,9 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
     /**
      * This variable will contain the url that the loader will pass to asyncTask
      */
-    String QUERY;
+    String QUERY, query_copy;
     private BookAdapter mAdapter;
+
     private final SearchView.OnQueryTextListener searchViewOnQueryTextListener =
             new SearchView.OnQueryTextListener() {
 
@@ -52,15 +63,17 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
                  */
                 @Override
                 public boolean onQueryTextSubmit(String query) {
+                    query_copy = query;
                     Uri baseUri = Uri.parse(SEARCH_QUERY_URL);
                     Uri.Builder uriBuilder = baseUri.buildUpon();
                     uriBuilder.appendQueryParameter("q", query);
-                    uriBuilder.appendQueryParameter("orderBy", "newest");
 
                     QUERY = uriBuilder.toString();
-                    Log.e(TAG,"Complete url for entered query is "+QUERY);
+                    Log.e(TAG, "Complete url for entered query is " + QUERY);
+                    mAdapter.clear();
                     LoaderManager.getInstance(BooksActivity.this).restartLoader(INITIAL_LOADER_ID, null, BooksActivity.this);
                     searchView.clearFocus();
+
                     return true;
                 }
 
@@ -77,36 +90,121 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
         LoaderManager.getInstance(this).initLoader(INITIAL_LOADER_ID, null, this);
-
-        GridView booksview = findViewById(R.id.booksList);
-
         mAdapter = new BookAdapter(this, new ArrayList<Book>());
-
+        GridView booksview = findViewById(R.id.booksList);
+        booksview.setEmptyView(findViewById(R.id.emptyView));
         booksview.setAdapter(mAdapter);
-
+        if (booksview.getCount() == 0) {
+                LinearLayout linearLayout = findViewById(R.id.search_first);
+                linearLayout.setVisibility(View.VISIBLE);
+        }
     }
 
-    public void show_toast(View v){
-                int duration= LENGTH_SHORT;
-                Context context=getApplicationContext();
-                Toast.makeText(context,"Click on learn more to see more details",duration).show();
+    public void show_toast(View v) {
+        int duration = LENGTH_SHORT;
+        Context context = getApplicationContext();
+        Toast.makeText(context, "Click on learn more to see more details", duration).show();
     }
 
     @Override
     public Loader<List<Book>> onCreateLoader(int i, Bundle bundle) {
-        return new BookLoader(this, QUERY);
+
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+        // If there is a network connection, fetch data
+        if (networkInfo != null && networkInfo.isConnected()&&query_copy!=null) {
+            LinearLayout linearLayout2=findViewById(R.id.noConnectionView);
+            linearLayout2.setVisibility(View.GONE);
+            LinearLayout linearLayout = findViewById(R.id.search_first);
+            linearLayout.setVisibility(View.GONE);
+            View loadingIndicator = findViewById(R.id.progress_horizontal);
+            loadingIndicator.setVisibility(View.VISIBLE);
+            LinearLayout linearLayout1=findViewById(R.id.emptyView);
+            ImageView imageView = findViewById(R.id.image_no_books);
+            TextView textView = findViewById(R.id.text_no_books);
+            linearLayout1.setVisibility(View.GONE);
+            imageView.setVisibility(View.GONE);
+            textView.setVisibility(View.GONE);
+
+            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+            String maxresults = sharedPrefs.getString(getString(R.string.settings_max_results_key), getString(R.string.settings_max_results_default));
+            String orderBy = sharedPrefs.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
+            String lang_pref=sharedPrefs.getString(getString(R.string.settings_lang_preference_key),getString(R.string.settings_lang_preference_default));
+            Uri baseUri = Uri.parse(SEARCH_QUERY_URL);
+            Uri.Builder uriBuilder = baseUri.buildUpon();
+            uriBuilder.appendQueryParameter("q", query_copy);
+            uriBuilder.appendQueryParameter("orderBy", orderBy);
+            uriBuilder.appendQueryParameter("maxResults", maxresults);
+            uriBuilder.appendQueryParameter("langRestrict",lang_pref);
+
+            QUERY = uriBuilder.toString();
+            Log.e(TAG, "Complete url for entered query is " + QUERY);
+
+            return new BookLoader(this, QUERY);
+
+        }
+        else if(networkInfo==null&&query_copy!=null)
+        {
+            LinearLayout linearLayout = findViewById(R.id.search_first);
+            linearLayout.setVisibility(View.GONE);
+            View loadingIndicator = findViewById(R.id.progress_horizontal);
+            loadingIndicator.setVisibility(View.GONE);
+            LinearLayout linearLayout2=findViewById(R.id.noConnectionView);
+            linearLayout2.setVisibility(View.VISIBLE);
+            LinearLayout linearLayout1=findViewById(R.id.emptyView);
+            ImageView imageView = findViewById(R.id.image_no_books);
+            TextView textView = findViewById(R.id.text_no_books);
+            linearLayout1.setVisibility(View.GONE);
+            imageView.setVisibility(View.GONE);
+            textView.setVisibility(View.GONE);
+            return new BookLoader(this, QUERY);
+        }
+        else
+            return new BookLoader(this, QUERY);
+
     }
 
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> books) {
+
+        View loadingIndicator = findViewById(R.id.progress_horizontal);
+        loadingIndicator.setVisibility(View.GONE);
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+        LinearLayout linearLayout=findViewById(R.id.emptyView);
+        ImageView imageView = findViewById(R.id.image_no_books);
+        TextView textView = findViewById(R.id.text_no_books);
+        if (QueryUtils.numberOfResults==0&&query_copy!=null&&networkInfo!=null) {
+            LinearLayout linearLayout2=findViewById(R.id.noConnectionView);
+            linearLayout2.setVisibility(View.GONE);
+            LinearLayout linearLayout1 = findViewById(R.id.search_first);
+            linearLayout1.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.VISIBLE);
+            imageView.setVisibility(View.VISIBLE);
+            textView.setVisibility(View.VISIBLE);
+            imageView.setImageResource(R.drawable.no_books);
+            textView.setText(R.string.no_books);
+        }
+
         mAdapter.clear();
 
         // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
         if (books != null && !books.isEmpty()) {
+            LinearLayout linearLayout2=findViewById(R.id.noConnectionView);
+            linearLayout2.setVisibility(View.GONE);
+            LinearLayout linearLayout1 = findViewById(R.id.search_first);
+            linearLayout1.setVisibility(View.GONE);
             mAdapter.addAll(books);
         }
-
     }
 
     @Override
@@ -130,6 +228,17 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
         }
         searchView.setOnQueryTextListener(searchViewOnQueryTextListener);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.settings) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

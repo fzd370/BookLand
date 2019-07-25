@@ -5,34 +5,35 @@
     build-mode="COLD"
     density="xxhdpi"
     format="10"
-    plugin-version="3.4.1"
-    timestamp="1562092375705"
+    ir-eligibility="COMPATIBLE"
+    plugin-version="3.4.2"
+    timestamp="1563858831869"
     token="-6424890414644921834"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="220" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="27" />
     <task
         name="verifier"
-        duration="0" />
+        duration="4" />
 
     <artifact
-        location="D:\Apps\BookLand\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+        location="D:\Apps\BookLand\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
         type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1562092262356"
+        timestamp="1563858681453"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="D:\Apps\BookLand\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+            location="D:\Apps\BookLand\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
             location="D:\Apps\BookLand\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
@@ -65,7 +66,7 @@
             location="D:\Apps\BookLand\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="D:\Apps\BookLand\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="D:\Apps\BookLand\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
         <artifact
             location="D:\Apps\BookLand\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
@@ -73,10 +74,11 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1562092375705"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1563858831869"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="D:\Apps\BookLand\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+            location="D:\Apps\BookLand\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
     </build>
 

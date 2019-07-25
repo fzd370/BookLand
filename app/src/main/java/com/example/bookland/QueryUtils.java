@@ -22,6 +22,8 @@ public class QueryUtils {
 
     public static final String LOG_TAG = QueryUtils.class.getName();
 
+    static int numberOfResults;
+
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
      * This class is only meant to hold static variables and methods, which can be accessed
@@ -147,6 +149,7 @@ public class QueryUtils {
             // Catch the exception so the app doesn't crash, and print the error message to the logs.
             try {
                 JSONObject baseJsonresponse = new JSONObject(booksJSON);
+                numberOfResults=baseJsonresponse.getInt("totalItems");
 
                 JSONArray booksarray = baseJsonresponse.getJSONArray("items");
 

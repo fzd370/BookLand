@@ -11,6 +11,10 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
+array settings_language_preference_values
+array settings_language_preferences_labels
+array settings_order_by_labels
+array settings_order_by_values
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -656,6 +660,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable barcode2
+drawable ed
 drawable filter2
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -677,8 +682,10 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable s2
 drawable scholarship
+drawable sd
 drawable search
 drawable search_bar_background
+drawable sfdg
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 font fonts
@@ -718,6 +725,7 @@ id action_mode_close_button
 id action_text
 id actions
 id activity_chooser_view_content
+id adapter_view
 id add
 id alertTitle
 id all
@@ -770,6 +778,8 @@ id icon
 id icon_group
 id ifRoom
 id image
+id image_no_books
+id image_search_first
 id info
 id invisible
 id italic
@@ -811,6 +821,7 @@ id search_bar
 id search_button
 id search_close_btn
 id search_edit_frame
+id search_first
 id search_go_btn
 id search_mag_icon
 id search_plate
@@ -842,6 +853,8 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id text_no_books
+id text_search_first
 id time
 id title
 id titleDividerNoCustom
@@ -899,6 +912,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout settings_activity
 layout support_simple_spinner_dropdown_item
 menu options_menu
 mipmap ic_launcher
@@ -950,6 +964,34 @@ string no_internet
 string search_hint
 string search_menu_title
 string search_title
+string settings_lang_preference_default
+string settings_lang_preference_en_label
+string settings_lang_preference_en_value
+string settings_lang_preference_es_label
+string settings_lang_preference_es_value
+string settings_lang_preference_fr_label
+string settings_lang_preference_fr_value
+string settings_lang_preference_it_label
+string settings_lang_preference_it_value
+string settings_lang_preference_key
+string settings_lang_preference_label
+string settings_lang_preference_pt_label
+string settings_lang_preference_pt_value
+string settings_lang_preference_summary
+string settings_max_results_default
+string settings_max_results_key
+string settings_max_results_label
+string settings_max_results_summary
+string settings_menu_item
+string settings_order_by_default
+string settings_order_by_key
+string settings_order_by_label
+string settings_order_by_most_recent_label
+string settings_order_by_most_recent_value
+string settings_order_by_relevance_label
+string settings_order_by_relevance_value
+string settings_order_by_summary
+string settings_title
 string status_bar_notification_info_overflow
 string written_by
 style AlertDialog_AppCompat
@@ -1362,3 +1404,4 @@ styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
 xml searchable
+xml settings_main

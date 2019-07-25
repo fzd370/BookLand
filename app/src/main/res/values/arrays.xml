@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_order_by_relevance_label</item>
+        <item>@string/settings_order_by_most_recent_label</item>
+    </string-array>
+
+    <string-array name="settings_order_by_values">
+        <item>@string/settings_order_by_relevance_value</item>
+        <item>@string/settings_order_by_most_recent_value</item>
+    </string-array>
+
+    <string-array name="settings_language_preference_values">
+        <item>@string/settings_lang_preference_en_value</item>
+        <item>@string/settings_lang_preference_fr_value</item>
+        <item>@string/settings_lang_preference_it_value</item>
+        <item>@string/settings_lang_preference_pt_value</item>
+        <item>@string/settings_lang_preference_es_value</item>
+    </string-array>
+
+    <string-array name="settings_language_preferences_labels">
+        <item>@string/settings_lang_preference_en_label</item>
+        <item>@string/settings_lang_preference_fr_label</item>
+        <item>@string/settings_lang_preference_it_label</item>
+        <item>@string/settings_lang_preference_pt_label</item>
+        <item>@string/settings_lang_preference_es_label</item>
+    </string-array>
+</resources>

@@ -34,14 +34,45 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/no_books"
-            android:layout_gravity="center_horizontal"/>
+            android:id="@+id/image_no_books"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no_books"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/text_no_books"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/search_first"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:id="@+id/image_search_first"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/sd"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/text_search_first"
+            android:textSize="27sp"
+            android:fontFamily="@font/quicksand_light"
+            android:textStyle="bold"
+            android:text="@string/search_title"/>
 
     </LinearLayout>
 
@@ -66,5 +97,13 @@
             android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
+    
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_centerInParent="true"
+        android:id="@+id/progress_horizontal"/>
+
 
 </RelativeLayout>

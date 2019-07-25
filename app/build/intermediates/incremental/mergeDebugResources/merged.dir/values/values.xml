@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="settings_language_preference_values">
+        <item>@string/settings_lang_preference_en_value</item>
+        <item>@string/settings_lang_preference_fr_value</item>
+        <item>@string/settings_lang_preference_it_value</item>
+        <item>@string/settings_lang_preference_pt_value</item>
+        <item>@string/settings_lang_preference_es_value</item>
+    </string-array>
+    <string-array name="settings_language_preferences_labels">
+        <item>@string/settings_lang_preference_en_label</item>
+        <item>@string/settings_lang_preference_fr_label</item>
+        <item>@string/settings_lang_preference_it_label</item>
+        <item>@string/settings_lang_preference_pt_label</item>
+        <item>@string/settings_lang_preference_es_label</item>
+    </string-array>
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_order_by_relevance_label</item>
+        <item>@string/settings_order_by_most_recent_label</item>
+    </string-array>
+    <string-array name="settings_order_by_values">
+        <item>@string/settings_order_by_relevance_value</item>
+        <item>@string/settings_order_by_most_recent_value</item>
+    </string-array>
     <attr format="boolean" name="barrierAllowsGoneWidgets"/>
     <attr format="enum" name="barrierDirection">
         <enum name="left" value="0"/>
@@ -399,6 +421,34 @@
     <string name="search_hint">Search books..</string>
     <string name="search_menu_title">Search</string>
     <string name="search_title">Search books here</string>
+    <string name="settings_lang_preference_default" translatable="false">@string/settings_lang_preference_en_value</string>
+    <string name="settings_lang_preference_en_label">English</string>
+    <string name="settings_lang_preference_en_value" translatable="false">en</string>
+    <string name="settings_lang_preference_es_label">Spanish</string>
+    <string name="settings_lang_preference_es_value" translatable="false">es</string>
+    <string name="settings_lang_preference_fr_label">French</string>
+    <string name="settings_lang_preference_fr_value" translatable="false">fr</string>
+    <string name="settings_lang_preference_it_label">Italian</string>
+    <string name="settings_lang_preference_it_value" translatable="false">it</string>
+    <string name="settings_lang_preference_key" translatable="false">lang_preference</string>
+    <string name="settings_lang_preference_label">Language Restriction</string>
+    <string name="settings_lang_preference_pt_label">Portuguese</string>
+    <string name="settings_lang_preference_pt_value" translatable="false">pt</string>
+    <string name="settings_lang_preference_summary">Choose the language</string>
+    <string name="settings_max_results_default" translatable="false">5</string>
+    <string name="settings_max_results_key" translatable="false">max_results</string>
+    <string name="settings_max_results_label">Maximum Results</string>
+    <string name="settings_max_results_summary">A number between 1 to 100</string>
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_most_recent_value</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_most_recent_label">Most Recent</string>
+    <string name="settings_order_by_most_recent_value" translatable="false">newest</string>
+    <string name="settings_order_by_relevance_label">Relevance</string>
+    <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
+    <string name="settings_order_by_summary">Sort results by relevance or time </string>
+    <string name="settings_title">BookLand Settings</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="written_by">Written by:</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -410,14 +460,16 @@
 
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+        
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">#33313b</item>
         <item name="colorAccent">#ca3e47</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    <item name="android:fontFamily">@font/quicksand_regular</item>
+    </style>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <style name="AppTheme.RaisedButtonAccent" parent="Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">@color/colorAccent</item>
@@ -1912,7 +1964,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:elevation">6dp</item>
-        <item name="titleTextColor">#fff</item>
+        <item name="titleTextColor">#dedede</item>
     </style>
     <style name="overFlowMenuTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:background">@color/colorPrimary</item>

@@ -4,7 +4,7 @@
             "outputFile": "D:\\Apps\\BookLand\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Shivam\\.gradle\\caches\\transforms-2\\files-2.1\\a7b2decdebf0efc265ee427621dae9f4\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Shivam\\.gradle\\caches\\transforms-2\\files-2.1\\2b832da7380d49c77291aa9ea69b7a8a\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Shivam\\.gradle\\caches\\transforms-2\\files-2.1\\f7148ab8c8c2da1ecf5afee61559ef2e\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Shivam\\.gradle\\caches\\transforms-2\\files-2.1\\07b75e2b5524fa465fe1cfa4978f48d2\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
