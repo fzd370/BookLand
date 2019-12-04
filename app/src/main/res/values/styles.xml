@@ -16,6 +16,18 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- SettingsActivity theme -->
+    <style name="SettingsTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#ffd739</item>
+        <item name="colorPrimaryDark">#33313b</item>
+        <item name="colorAccent">#000000</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="titleTextColor">#000000</item>
+        <item name="colorControlNormal">#000</item>
+    </style>
+
     <style name="toolBarTextStyle" parent="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
@@ -28,7 +40,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:elevation">6dp</item>
-        <item name ="titleTextColor">#dedede</item>
+        <item name ="titleTextColor">#000000</item>
     </style>
 
     <style name="overFlowMenuTheme" parent="ThemeOverlay.AppCompat.Light">

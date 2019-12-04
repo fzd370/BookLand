@@ -167,7 +167,7 @@
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
-    <color name="background_toolbar">#4592af</color>
+    <color name="background_toolbar">#ffd739</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -417,6 +417,7 @@
     <string name="barcode_reader">Barcode Reader</string>
     <string name="filter">Preferences</string>
     <string name="no_books">We couldn\'t find any books matching your query</string>
+    <string name="no_description">No description</string>
     <string name="no_internet">No Internet Connection</string>
     <string name="search_hint">Search books..</string>
     <string name="search_menu_title">Search</string>
@@ -449,6 +450,7 @@
     <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
     <string name="settings_order_by_summary">Sort results by relevance or time </string>
     <string name="settings_title">BookLand Settings</string>
+    <string name="splash_screen_text">Welcome to the world of books!</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="written_by">Written by:</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -1750,6 +1752,16 @@
         <item name="android:paddingLeft">@dimen/abc_action_bar_overflow_padding_start_material</item>
         <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
     </style>
+    <style name="SettingsTheme" parent="Theme.AppCompat.Light">
+        
+        <item name="colorPrimary">#ffd739</item>
+        <item name="colorPrimaryDark">#33313b</item>
+        <item name="colorAccent">#000000</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="titleTextColor">#000000</item>
+        <item name="colorControlNormal">#000</item>
+    </style>
     <style name="TextAppearance.AppCompat" parent="Base.TextAppearance.AppCompat"/>
     <style name="TextAppearance.AppCompat.Body1" parent="Base.TextAppearance.AppCompat.Body1"/>
     <style name="TextAppearance.AppCompat.Body2" parent="Base.TextAppearance.AppCompat.Body2"/>
@@ -1964,7 +1976,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:elevation">6dp</item>
-        <item name="titleTextColor">#dedede</item>
+        <item name="titleTextColor">#000000</item>
     </style>
     <style name="overFlowMenuTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:background">@color/colorPrimary</item>

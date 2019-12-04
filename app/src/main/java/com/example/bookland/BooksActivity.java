@@ -83,6 +83,12 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
                 }
             };
 
+    /**
+     * onCreate method is called when the activity is made. This method contains the code which inflates the gridview with the contents provided by the
+     * {@link BookAdapter} . It also starts loader when the activity is created.
+     * @param savedInstanceState
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,11 +106,27 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
         }
     }
 
+    /**
+     * Called when the user clicks on the cardview. This method displays a toast to tell the user to click on Learn more
+     * provided on the lower side of the card to know more about the book.
+     *
+     */
     public void show_toast(View v) {
         int duration = LENGTH_SHORT;
         Context context = getApplicationContext();
         Toast.makeText(context, "Click on learn more to see more details", duration).show();
     }
+
+    /**
+     * CreateLoader is the first method which gets called when the loader is created.
+     * This checks the network connection of the phone and shows message if the
+     * phone is not connected to the internet and calls the constructor of the {@link BookLoader} class
+     * and passes context and the whole URL formed. If the phone is connected to the internet
+     * and the query entered in the SearchView is not null then the method
+     * forms uniform resource locater(Uri) by attaching the string entered in the SearchView
+     * with the URL of the Google Books API and calls the constructor of the {@link BookLoader}.
+     *
+     */
 
     @Override
     public Loader<List<Book>> onCreateLoader(int i, Bundle bundle) {
@@ -147,6 +169,7 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
             return new BookLoader(this, QUERY);
 
         }
+        //If the phone is not connected to internet and the query in the SearchView is not null
         else if(networkInfo==null&&query_copy!=null)
         {
             LinearLayout linearLayout = findViewById(R.id.search_first);
@@ -165,8 +188,14 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
         }
         else
             return new BookLoader(this, QUERY);
-
     }
+
+    /**
+     * Called when the the loader is about to finish. This method checks that whether any result was
+     * found for the query entered and if no books were found then it displays message showing that and
+     * clears the {@link BookAdapter}. If the results were found then it hides the LinearLayouts showing
+     * the messages and adds the data of the books to the adapter.
+     */
 
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> books) {
@@ -196,8 +225,8 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
 
         mAdapter.clear();
 
-        // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
-        // data set. This will trigger the ListView to update.
+        // If there is a valid list of books, then add them to the adapter's
+        // data set. This will trigger the GridView to update.
         if (books != null && !books.isEmpty()) {
             LinearLayout linearLayout2=findViewById(R.id.noConnectionView);
             linearLayout2.setVisibility(View.GONE);
@@ -207,11 +236,18 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
         }
     }
 
+    /**
+     * Called to reset the loader.
+     * @param loader
+     */
     @Override
     public void onLoaderReset(Loader<List<Book>> loader) {
         mAdapter.clear();
     }
 
+    /**
+     * Called to show the menu items in the toolbar and define their properties
+     */
     @SuppressLint("RestrictedApi")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -230,6 +266,10 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
         return true;
     }
 
+    /**
+     * Called when the user selects any of the items showed in the menu and performs required
+     * action according to the id of the item.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

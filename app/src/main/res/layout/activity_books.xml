@@ -85,8 +85,8 @@
         android:id="@+id/noConnectionView">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:src="@drawable/no_connection"
             android:layout_gravity="center_horizontal"/>
 

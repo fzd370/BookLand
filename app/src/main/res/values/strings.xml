@@ -58,4 +58,9 @@
     <!-- Label for Spanish option [CHAR LIMIT=20] -->
     <string name="settings_lang_preference_es_label">Spanish</string>
     <string name="settings_lang_preference_es_value" translatable="false">es</string>
+
+    <!-- Text for splash screen-->
+    <string name="splash_screen_text">Welcome to the world of books!</string>
+
+    <string name="no_description">No description</string>
 </resources>

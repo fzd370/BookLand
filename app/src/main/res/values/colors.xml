@@ -9,6 +9,6 @@
     <color name="google_yellow">#fbbc05</color>
     <color name="white">#fff</color>
     <color name="background_color">#eee</color>
-    <color name="background_toolbar">#4592af</color>
+    <color name="background_toolbar">#ffd739</color>
     <color name = "colorToolbarTitle">@android:color/white</color>
 </resources>

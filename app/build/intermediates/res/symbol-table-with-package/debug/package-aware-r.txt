@@ -660,7 +660,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable barcode2
-drawable ed
+drawable books_logo
 drawable filter2
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -902,6 +902,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_books
+layout activity_splash
 layout layout_bookadapter
 layout notification_action
 layout notification_action_tombstone
@@ -960,6 +961,7 @@ string app_name
 string barcode_reader
 string filter
 string no_books
+string no_description
 string no_internet
 string search_hint
 string search_menu_title
@@ -992,6 +994,7 @@ string settings_order_by_relevance_label
 string settings_order_by_relevance_value
 string settings_order_by_summary
 string settings_title
+string splash_screen_text
 string status_bar_notification_info_overflow
 string written_by
 style AlertDialog_AppCompat
@@ -1192,6 +1195,7 @@ style RtlOverlay_Widget_AppCompat_Search_DropDown_Text
 style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
+style SettingsTheme
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2
