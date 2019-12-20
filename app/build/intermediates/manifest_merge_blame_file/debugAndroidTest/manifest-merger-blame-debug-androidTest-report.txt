@@ -3,31 +3,31 @@
 3    package="com.example.bookland.test" >
 4
 5    <uses-sdk
-5-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:5:5-74
+5-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:5:5-74
 6        android:minSdkVersion="22"
-6-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:5:15-41
+6-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:5:15-41
 7        android:targetSdkVersion="28" />
-7-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:5:42-71
+7-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:5:42-71
 8
 9    <instrumentation
-9-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:11:5-15:70
+9-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:11:5-15:70
 10        android:name="android.support.test.runner.AndroidJUnitRunner"
-10-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:11:22-83
+10-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:11:22-83
 11        android:functionalTest="false"
-11-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:14:22-52
+11-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:14:22-52
 12        android:handleProfiling="false"
-12-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:13:22-53
+12-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:13:22-53
 13        android:label="Tests for com.example.bookland"
-13-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:15:22-68
+13-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:15:22-68
 14        android:targetPackage="com.example.bookland" />
-14-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:12:22-66
+14-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:12:22-66
 15
 16    <application android:debuggable="true" >
-16-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:7:5-9:19
-16-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:7:18-43
+16-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:7:5-9:19
+16-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:7:18-43
 17        <uses-library android:name="android.test.runner" />
-17-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:8:9-60
-17-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger5697087282762409880.xml:8:23-57
+17-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:8:9-60
+17-->D:\Apps\BookLand\app\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger404556209882023207.xml:8:23-57
 18    </application>
 19
 20</manifest>

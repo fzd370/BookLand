@@ -16,6 +16,16 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!--SplashScreen settings-->
+    <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#eee</item>
+        <item name="colorPrimaryDark">#eee</item>
+        <item name="colorAccent">#ca3e47</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <!-- SettingsActivity theme -->
     <style name="SettingsTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->

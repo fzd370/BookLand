@@ -92,6 +92,7 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_books);
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
@@ -276,6 +277,11 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
         if (id == R.id.settings) {
             Intent settingsIntent = new Intent(this, SettingsActivity.class);
             startActivity(settingsIntent);
+            return true;
+        }
+        if(id == R.id.barcode){
+            Intent barcodeIntent = new Intent(this, New.class);
+            startActivity(barcodeIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);
