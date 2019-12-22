@@ -1,15 +1,20 @@
 package com.example.bookland;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
@@ -26,6 +31,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.vision.barcode.Barcode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,12 +42,15 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
 
     private static final String TAG = BooksActivity.class.getName();
     private static final int INITIAL_LOADER_ID = 1;
+    public static final int REQUEST_CODE=100;
+    public static final int PERMISSION_REQUEST=200;
 
     /**
      * Initial part of the url used when a search query is entered
      */
     private static final String SEARCH_QUERY_URL = "https://www.googleapis.com/books/v1/volumes?";
     SearchView searchView;
+    TextView result;
     /**
      * This variable will contain the url that the loader will pass to asyncTask
      */
@@ -92,11 +102,14 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},PERMISSION_REQUEST);
+        }
         setContentView(R.layout.activity_books);
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
         LoaderManager.getInstance(this).initLoader(INITIAL_LOADER_ID, null, this);
+        result=findViewById(R.id.result);
         mAdapter = new BookAdapter(this, new ArrayList<Book>());
         GridView booksview = findViewById(R.id.booksList);
         booksview.setEmptyView(findViewById(R.id.emptyView));
@@ -280,11 +293,27 @@ public class BooksActivity extends AppCompatActivity implements LoaderManager.Lo
             return true;
         }
         if(id == R.id.barcode){
-            Intent barcodeIntent = new Intent(this, New.class);
-            startActivity(barcodeIntent);
+            Intent barcodeIntent = new Intent(this, BarCodeScannerAvtivity.class);
+            startActivityForResult(barcodeIntent,REQUEST_CODE);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(data!=null){
+            final Barcode barcode=data.getParcelableExtra("barcode");
+            result.post(new Runnable() {
+                @Override
+                public void run() {
+                    String url = "http://www.google.com/#q=";
+                    String query = barcode.displayValue;
+                    String final_url = url + query;
+                    Uri uri = Uri.parse(final_url);
+                    startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                }
+            });
+        }
+    }
 }
